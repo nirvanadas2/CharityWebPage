@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy & Terms | MindWell Foundation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #F9ED32;
+            --secondary: #252525;
+            --dark: #131313;
+            --light: #FFFFFF;
+            --accent: #FF6B6B;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--dark);
+            color: var(--light);
+            overflow-x: hidden;
+        }
+        
+        header {
+            background: var(--secondary);
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        header.scrolled {
+            padding: 10px 0;
+            background: rgba(37, 37, 37, 0.95);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo i {
+            font-size: 32px;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        
+        .nav-links li a {
+            text-decoration: none;
+            color: var(--light);
+            font-weight: 500;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-links li a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            bottom: -5px;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links li a:hover:after {
+            width: 100%;
+        }
+        
+        .nav-links li a:hover {
+            color: var(--primary);
+        }
+        
+        .donate-btn {
+            background: var(--primary);
+            padding: 10px 25px;
+            border-radius: 30px;
+            color: var(--secondary);
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: 2px solid var(--primary);
+        }
+        
+        .donate-btn:hover {
+            background: transparent;
+            color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(249, 237, 50, 0.2);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--light);
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        .page-hero {
+            background: linear-gradient(135deg, rgba(249,237,50,0.8) 0%, rgba(255,242,37,0.8) 100%), url('https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
+            color: var(--secondary);
+            text-align: center;
+            padding: 180px 20px 100px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .page-hero h1 {
+            font-size: 3.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+            animation: fadeInUp 1s ease 0.2s forwards;
+            opacity: 0;
+        }
+        
+        .breadcrumb a {
+            color: var(--secondary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .breadcrumb a:hover {
+            color: var(--accent);
+        }
+        
+        .breadcrumb span {
+            margin: 0 10px;
+        }
+        
+        .section {
+            padding: 80px 20px;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+            text-align: center;
+            width: 100%;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 3px;
+            background: var(--primary);
+            bottom: -10px;
+            left: 25%;
+        }
+        
+        .policy-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .policy-tabs {
+            display: flex;
+            margin-bottom: 30px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .policy-tab {
+            padding: 15px 30px;
+            cursor: pointer;
+            font-weight: 500;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .policy-tab.active {
+            color: var(--primary);
+        }
+        
+        .policy-tab.active:after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 3px;
+            background: var(--primary);
+            bottom: -1px;
+            left: 0;
+        }
+        
+        .policy-content {
+            display: none;
+        }
+        
+        .policy-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .policy-section {
+            margin-bottom: 40px;
+        }
+        
+        .policy-section h3 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .policy-section h3:after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 2px;
+            background: var(--primary);
+            bottom: 0;
+            left: 0;
+        }
+        
+        .policy-section p, .policy-section ul {
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+        
+        .policy-section ul {
+            padding-left: 20px;
+        }
+        
+        .policy-section li {
+            margin-bottom: 10px;
+        }
+        
+        .last-updated {
+            font-style: italic;
+            opacity: 0.7;
+            margin-bottom: 40px;
+        }
+        
+        .contact-privacy {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            border-radius: 10px;
+            margin-top: 50px;
+            border-left: 4px solid var(--primary);
+        }
+        
+        .contact-privacy h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        footer {
+            background: var(--secondary);
+            padding: 60px 0 20px;
+            color: var(--light);
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .footer-logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .footer-logo i {
+            font-size: 28px;
+        }
+        
+        .footer-desc {
+            margin-bottom: 20px;
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            background: var(--primary);
+            color: var(--secondary);
+            transform: translateY(-3px);
+        }
+        
+        .footer-title {
+            font-size: 1.2rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-title:after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 2px;
+            background: var(--primary);
+            bottom: 0;
+            left: 0;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: var(--light);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            opacity: 0.8;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary);
+            opacity: 1;
+            padding-left: 5px;
+        }
+        
+        .contact-info {
+            list-style: none;
+        }
+        
+        .contact-info li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+        
+        .contact-info i {
+            color: var(--primary);
+            margin-top: 3px;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .nav-links {
+                gap: 15px;
+            }
+            
+            .page-hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: var(--secondary);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 30px;
+                transition: all 0.5s ease;
+            }
+            
+            .nav-links.active {
+                left: 0;
+            }
+            
+            .page-hero {
+                padding: 150px 20px 80px;
+            }
+            
+            .page-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .policy-tabs {
+                flex-direction: column;
+                border-bottom: none;
+                border-left: 1px solid rgba(255, 255, 255, 0.1);
+            }
+            
+            .policy-tab {
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+            
+            .policy-tab.active:after {
+                width: 3px;
+                height: 100%;
+                left: -1px;
+                bottom: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header id="header">
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <i class="fas fa-brain"></i>
+                    <span>MindWell</span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Our Services</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="getinvolved.html">Get Involved</a></li>
+                    <li><a href="news.html">Blog & News</a></li>
+                    <li><a href="donate.html" class="donate-btn">Donate</a></li>
+                </ul>
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+    
+    <section class="page-hero">
+        <h1>Privacy & Terms</h1>
+        <div class="breadcrumb">
+            <a href="index.html">Home</a>
+            <span>/</span>
+            <a href="privacy.html">Privacy & Terms</a>
+        </div>
+    </section>
+    
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Our Policies</h2>
+            
+            <div class="policy-container">
+                <div class="policy-tabs">
+                    <div class="policy-tab active" data-tab="privacy">Privacy Policy</div>
+                    <div class="policy-tab" data-tab="terms">Terms of Service</div>
+                    <div class="policy-tab" data-tab="cookies">Cookie Policy</div>
+                </div>
+                
+                <div class="last-updated">Last updated: June 15, 2025</div>
+                
+                <!-- Privacy Policy Content -->
+                <div class="policy-content active" id="privacy-content">
+                    <div class="policy-section">
+                        <h3>Introduction</h3>
+                        <p>MindWell Foundation ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our services. Please read this policy carefully. If you do not agree with the terms of this policy, please do not access the site.</p>
+                    </div>
+                    
+                    <div class="policy-section">
+                        <h3>Information We Collect</h3>
+                        <p>We may collect information about you in a variety of ways. The information we may collect includes:</p>
+                        <ul>
+                            <li><strong>Personal Data:</strong> Personally identifiable information, such as your name, email address, phone number, and demographic information that you voluntarily give to us when you register for services or contact us.</li>
+                            <li><strong>Derivative Data:</strong> Information our servers automatically collect when you access the site, such as your IP address, browser type, operating system, access times, and pages viewed.</li>
+                            <li><strong>Financial Data:</strong> Financial information, such as data related to your payment method when you make donations (credit card number, security code, etc.).</li>
+                            <li><strong>Health Data:</strong> If you use our mental health screening tools or services, we may collect health-related information you choose to provide.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="policy-section">
+                        <h3>How We Use Your Information</h3>
+                        <p>We use the information we collect in the following ways:</p>
+                        <ul>
+                            <li>To provide and maintain our services</li>
+                            <li>To notify you about changes to our services</li>
+                            <li>To allow you to participate in interactive features of our site</li>
+                            <li>To provide customer support</li>
+                            <li>To gather analysis or valuable information to improve our site</li>
+                            <li>To monitor the usage of our site</li>
+                            <li>To detect, prevent, and address technical issues</li>
+                            <li>To process your donations and send you receipts</li>
+                            <li>To provide you with news, special offers, and general information about other services we offer</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="policy-section">
+                        <h3>Disclosure of Your Information</h3>
+                        <p>We may share information we have collected about you in certain situations:</p>
+                        <ul>
+                            <li><strong>With Service Providers:</strong> We may share your information with third parties that perform services for us or on our behalf.</li>
+                            <li><strong>For Legal Reasons:</strong> We may disclose your information where required to do so by law or in response to valid requests by public authorities.</li>
+                            <li><strong>To Protect Rights:</strong> If we believe disclosure is necessary to protect the rights, property, or safety of MindWell Foundation, our clients, or others.</li>
+                            <li><strong>Health Emergencies:</strong> In cases where there is imminent risk of harm to yourself or others, we may disclose relevant information to appropriate authorities or healthcare providers.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="policy-section">
+                        <h3>Security of Your Information</h3>
+                        <p>We use administrative, technical, and physical security measures to help protect your personal information. While we have taken reasonable steps to secure the personal information you provide to us, please be aware that despite our efforts, no security measures are perfect or impenetrable, and no method of data transmission can be guaranteed against any interception or other type of misuse.</p>
+                    </div>
+                    
+                    <div class="policy-section">
+                        <h3>Your Rights</h3>
+                        <p>Depending on your location, you may have certain rights regarding your personal information, including:</p>
+                        <ul>
+                            <li>The right to access and receive a copy of your personal data</li>
+                            <li>The right to request correction of inaccurate personal data</li>
+                            <li>The right to request deletion of your personal data</li>
+                            <li>The right to restrict or object to processing of your data</li>
+                            <li>The right to data portability</li>
+                            <li>The right to withdraw consent where processing is based on consent</li>
+                        </ul>
+                        <p>To exercise any of these rights, please contact us using the information below.</p>
+                    </div>
+                    
+                    <div class="policy-section">
+                        <h3>Children's Privacy</h3>
+                        <p>Our services are not intended for children under 13. We do not knowingly collect personally identifiable information from children under 13. If you become aware that a child has provided us with personal information, please contact us immediately.</p>
+                    </div>
+                    
+                    <div class="policy-section">
+                        <h3>Changes to This Policy</h3>
+                        <p>We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last updated" date. You are advised to review this Privacy Policy periodically for any changes.</p>
+                    </div>
+                    
+                    <div class="contact-privacy">
+                        <h3>Contact Us</h3>
+                        <p>If you have questions or comments about this Privacy Policy, please contact us at:</p>
+                        <p>MindWell Foundation<br>
+                        123 Wellness Street<br>
+                        Mindville, MV 12345<br>
+                        Email: privacy@mindwell.org<br>
+                        Phone: 1-800-646-3935</p>
+                    </div>
+                </div>
+                
+                <!-- Terms of Service Content -->
+                <div class="policy-content" id="terms-content">
+                    <div class="policy-section">
+                        <h3>Introduction</h3>
+                        <p>Welcome to MindWell Foundation. These Terms of Service ("Terms") govern your access to and use of our website and services. Please read these Terms carefully before using our services.</p>
+                    </div>
+                    
+                    <div class="policy-section">
+                        <h3>Acceptance of Terms</h3>
+                        <p>By accessing or using our services, you agree to be bound by these Terms and our Privacy Policy. If you disagree with any part of the terms, then you may not access the service.</p>
+                    </div>
+                    
+                    <div class="policy-section">
+                        <h3>Use of Services</h3>
+                        <p>Our services include mental health resources, educational content, screening tools, and donation processing. You agree to use these services only for lawful purposes and in accordance with these Terms.</p>
+                        <p>You agree not to:</p>
+                        <ul>
+                            <li>Use our services in any way that violates any applicable law or regulation</li>
+                            <li>Engage in any conduct that restricts or inhibits anyone's use of the services</li>
+                            <li>Attempt to gain unauthorized access to any portion of the services</li>
+                            <li>Use the services to advertise or offer to sell goods and services</li>
+                            <li>Impersonate any person or entity, or falsely state your affiliation with any person or entity</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="policy-section">
+                        <h3>Intellectual Property</h3>
+                        <p>The services and their original content, features, and functionality are owned by MindWell Foundation and are protected by international copyright, trademark, and other intellectual property laws.</p>
+                        <p>You may not modify, reproduce, distribute, create derivative works of, publicly display, or in any way exploit any of the content, in whole or in part, without our express written permission.</p>
+                    </div>
+                    
+                    <div class="policy-section">
+                        <h3>Disclaimer of Medical Advice</h3>
+                        <p>The information provided through our services is for general informational purposes only and is not intended as a substitute for professional medical advice, diagnosis, or treatment. Always seek the advice of your physician or other qualified health provider with any questions you may have regarding a medical condition.</p>
+                        <p>Never disregard professional medical advice or delay in seeking it because of something you have read on our website.</p>
+                    </div>
+                    
+                    <div class="policy-section">
+                        <h3>Donations</h3>
+                        <p>All donations made through our website are final and non-refundable. We reserve the right to refuse or return any donation at our discretion.</p>
+                    </div>
+                    
+                    <div class="policy-section">
+                        <h3>Limitation of Liability</h3>
+                        <p>In no event shall MindWell Foundation, nor its directors, employees, or agents, be liable for any indirect, incidental, special, consequential, or punitive damages resulting from your access to or use of, or inability to access or use, the services.</p>
+                    </div>
+                    
+                    <div class="policy-section">
+                        <h3>Indemnification</h3>
+                        <p>You agree to defend, indemnify, and hold harmless MindWell Foundation from any claims, liabilities, damages, judgments, awards, losses, costs, expenses, or fees arising out of or relating to your violation of these Terms or your use of the services.</p>
+                    </div>
+                    
+                    <div class="policy-section">
+                        <h3>Changes to Terms</h3>
+                        <p>We reserve the right to modify these Terms at any time. We will notify you of any changes by updating the "Last updated" date of these Terms. Your continued use of our services after such modifications constitutes your acceptance of the modified Terms.</p>
+                    </div>
+                    
+                    <div class="policy-section">
+                        <h3>Governing Law</h3>
+                        <p>These Terms shall be governed by and construed in accordance with the laws of the state where MindWell Foundation is registered, without regard to its conflict of law provisions.</p>
+                    </div>
+                    
+                    <div class="contact-privacy">
+                        <h3>Contact Us</h3>
+                        <p>If you have any questions about these Terms, please contact us at:</p>
+                        <p>MindWell Foundation<br>
+                        123 Wellness Street<br>
+                        Mindville, MV 12345<br>
+                        Email: legal@mindwell.org<br>
+                        Phone: 1-800-646-3935</p>
+                    </div>
+                </div>
+                
+                <!-- Cookie Policy Content -->
+                <div class="policy-content" id="cookies-content">
+                    <div class="policy-section">
+                        <h3>Introduction</h3>
+                        <p>This Cookie Policy explains how MindWell Foundation uses cookies and similar technologies when you visit our website. By using our website, you consent to the use of cookies in accordance with this policy.</p>
+                    </div>
+                    
+                    <div class="policy-section">
+                        <h3>What Are Cookies?</h3>
+                        <p>Cookies are small text files that are placed on your computer or mobile device when you visit a website. They are widely used to make websites work more efficiently, as well as to provide information to the website owners.</p>
+                    </div>
+                    
+                    <div class="policy-section">
+                        <h3>How We Use Cookies</h3>
+                        <p>We use cookies for several purposes:</p>
+                        <ul>
+                            <li><strong>Essential Cookies:</strong> These are necessary for the website to function and cannot be switched off.</li>
+                            <li><strong>Performance Cookies:</strong> These allow us to count visits and traffic sources to improve site performance.</li>
+                            <li><strong>Functional Cookies:</strong> These enable enhanced functionality and personalization.</li>
+                            <li><strong>Targeting Cookies:</strong> These may be set through our site by our advertising partners to build a profile of your interests.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="policy-section">
+                        <h3>Managing Cookies</h3>
+                        <p>Most web browsers allow some control of cookies through browser settings. You can set your browser to refuse all or some cookies, or to alert you when websites set or access cookies. If you disable or refuse cookies, please note that some parts of our website may become inaccessible or not function properly.</p>
+                    </div>
+                    
+                    <div class="policy-section">
+                        <h3>Changes to This Policy</h3>
+                        <p>We may update our Cookie Policy from time to time. We will notify you of any changes by posting the new Cookie Policy on this page and updating the "Last updated" date.</p>
+                    </div>
+                    
+                    <div class="contact-privacy">
+                        <h3>Contact Us</h3>
+                        <p>If you have any questions about our use of cookies, please contact us at:</p>
+                        <p>MindWell Foundation<br>
+                        123 Wellness Street<br>
+                        Mindville, MV 12345<br>
+                        Email: privacy@mindwell.org<br>
+                        Phone: 1-800-646-3935</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <i class="fas fa-brain"></i>
+                        <span>MindWell Foundation</span>
+                    </div>
+                    <p class="footer-desc">Dedicated to improving mental health through support, education, and advocacy. Together, we can create a world where mental well-being is a priority for all.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3 class="footer-title">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Our Services</a></li>
+                        <li><a href="resources.html">Resources</a></li>
+                        <li><a href="getinvolved.html">Get Involved</a></li>
+                        <li><a href="news.html">Blog & News</a></li>
+                        <li><a href="donate.html">Donate</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3 class="footer-title">Our Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Crisis Support</a></li>
+                        <li><a href="#">Counseling</a></li>
+                        <li><a href="#">Support Groups</a></li>
+                        <li><a href="#">Workshops</a></li>
+                        <li><a href="#">Community Programs</a></li>
+                        <li><a href="#">Youth Services</a></li>
+                        <li><a href="#">Workplace Training</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3 class="footer-title">Contact Us</h3>
+                    <ul class="contact-info">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>123 Wellness Street, Mindville, MV 12345</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone-alt"></i>
+                            <span>1-800-MINDWELL (1-800-646-3935)</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>info@mindwell.org</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <span>Monday - Friday: 9am - 7pm<br>Weekends: 10am - 4pm</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 MindWell Foundation. All Rights Reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="privacy.html">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navLinks.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Header scroll effect
+        const header = document.getElementById('header');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // Policy tabs functionality
+        const policyTabs = document.querySelectorAll('.policy-tab');
+        
+        policyTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active class from all tabs
+                policyTabs.forEach(t => t.classList.remove('active'));
+                
+                // Add active class to clicked tab
+                tab.classList.add('active');
+                
+                // Hide all content
+                document.querySelectorAll('.policy-content').forEach(content => {
+                    content.classList.remove('active');
+                });
+                
+                // Show corresponding content
+                const tabId = tab.getAttribute('data-tab');
+                document.getElementById(`${tabId}-content`).classList.add('active');
+            });
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (navLinks.classList.contains('active')) {
+                        navLinks.classList.remove('active');
+                        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,1305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Involved | MindWell Foundation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #F9ED32;
+            --secondary: #252525;
+            --dark: #131313;
+            --light: #FFFFFF;
+            --accent: #FF6B6B;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--dark);
+            color: var(--light);
+            overflow-x: hidden;
+        }
+        
+        header {
+            background: var(--secondary);
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        header.scrolled {
+            padding: 10px 0;
+            background: rgba(37, 37, 37, 0.95);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo i {
+            font-size: 32px;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        
+        .nav-links li a {
+            text-decoration: none;
+            color: var(--light);
+            font-weight: 500;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-links li a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            bottom: -5px;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links li a:hover:after {
+            width: 100%;
+        }
+        
+        .nav-links li a:hover {
+            color: var(--primary);
+        }
+        
+        .donate-btn {
+            background: var(--primary);
+            padding: 10px 25px;
+            border-radius: 30px;
+            color: var(--secondary);
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: 2px solid var(--primary);
+        }
+        
+        .donate-btn:hover {
+            background: transparent;
+            color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(249, 237, 50, 0.2);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--light);
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        .page-hero {
+            background: linear-gradient(135deg, rgba(249,237,50,0.8) 0%, rgba(255,242,37,0.8) 100%), url('https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
+            color: var(--secondary);
+            text-align: center;
+            padding: 180px 20px 100px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .page-hero h1 {
+            font-size: 3.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+            animation: fadeInUp 1s ease 0.2s forwards;
+            opacity: 0;
+        }
+        
+        .breadcrumb a {
+            color: var(--secondary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .breadcrumb a:hover {
+            color: var(--accent);
+        }
+        
+        .breadcrumb span {
+            margin: 0 10px;
+        }
+        
+        .section {
+            padding: 80px 20px;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+            text-align: center;
+            width: 100%;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 3px;
+            background: var(--primary);
+            bottom: -10px;
+            left: 25%;
+        }
+        
+        .involvement-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 60px;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        .involvement-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        .involvement-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .involvement-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(249, 237, 50, 0.2);
+        }
+        
+        .involvement-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .involvement-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .involvement-card:hover .involvement-image img {
+            transform: scale(1.1);
+        }
+        
+        .involvement-content {
+            padding: 30px;
+        }
+        
+        .involvement-type {
+            display: inline-block;
+            padding: 5px 15px;
+            background: var(--primary);
+            color: var(--secondary);
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        
+        .involvement-title {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .involvement-desc {
+            margin-bottom: 20px;
+        }
+        
+        .involvement-btn {
+            display: inline-block;
+            padding: 10px 25px;
+            background: var(--primary);
+            color: var(--secondary);
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .involvement-btn:hover {
+            background: var(--light);
+            transform: translateY(-3px);
+        }
+        
+        .volunteer-benefits {
+            background: var(--secondary);
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .benefit-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        
+        .benefit-card:hover {
+            background: rgba(249, 237, 50, 0.1);
+            transform: translateY(-10px);
+        }
+        
+        .benefit-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .benefit-title {
+            font-size: 1.4rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .testimonials {
+            background: linear-gradient(135deg, rgba(249,237,50,0.1) 0%, rgba(255,107,107,0.1) 100%);
+        }
+        
+        .testimonial-carousel {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+        
+        .testimonial-slides {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        
+        .testimonial-card {
+            min-width: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        
+        .testimonial-content {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .testimonial-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            font-style: italic;
+            position: relative;
+        }
+        
+        .testimonial-text:before,
+        .testimonial-text:after {
+            content: '"';
+            font-size: 3rem;
+            color: var(--primary);
+            opacity: 0.3;
+            position: absolute;
+        }
+        
+        .testimonial-text:before {
+            top: -20px;
+            left: -10px;
+        }
+        
+        .testimonial-text:after {
+            bottom: -40px;
+            right: -10px;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .author-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-bottom: 15px;
+            border: 3px solid var(--primary);
+        }
+        
+        .author-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .author-name {
+            font-weight: bold;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+        
+        .author-role {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        .carousel-nav {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 30px;
+        }
+        
+        .carousel-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .carousel-dot.active {
+            background: var(--primary);
+            transform: scale(1.2);
+        }
+        
+        .volunteer-form {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--light);
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+        
+        .form-row {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .form-row .form-group {
+            flex: 1;
+        }
+        
+        .form-select {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--light);
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+        }
+        
+        .form-select:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+        
+        .form-textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            display: inline-block;
+            width: 100%;
+            padding: 15px;
+            background: var(--primary);
+            color: var(--secondary);
+            border: none;
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .submit-btn:hover {
+            background: var(--light);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(249, 237, 50, 0.3);
+        }
+        
+        .corporate-section {
+            background: var(--secondary);
+        }
+        
+        .corporate-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .corporate-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+        
+        .corporate-card:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-10px);
+        }
+        
+        .corporate-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .corporate-title {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        footer {
+            background: var(--secondary);
+            padding: 60px 0 20px;
+            color: var(--light);
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .footer-logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .footer-logo i {
+            font-size: 28px;
+        }
+        
+        .footer-desc {
+            margin-bottom: 20px;
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            background: var(--primary);
+            color: var(--secondary);
+            transform: translateY(-3px);
+        }
+        
+        .footer-title {
+            font-size: 1.2rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-title:after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 2px;
+            background: var(--primary);
+            bottom: 0;
+            left: 0;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: var(--light);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            opacity: 0.8;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary);
+            opacity: 1;
+            padding-left: 5px;
+        }
+        
+        .contact-info {
+            list-style: none;
+        }
+        
+        .contact-info li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+        
+        .contact-info i {
+            color: var(--primary);
+            margin-top: 3px;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .nav-links {
+                gap: 15px;
+            }
+            
+            .page-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: var(--secondary);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 30px;
+                transition: all 0.5s ease;
+            }
+            
+            .nav-links.active {
+                left: 0;
+            }
+            
+            .page-hero {
+                padding: 150px 20px 80px;
+            }
+            
+            .page-hero h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header id="header">
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <i class="fas fa-brain"></i>
+                    <span>MindWell</span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Our Services</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="getinvolved.html" class="active">Get Involved</a></li>
+                    <li><a href="news.html">Blog & News</a></li>
+                    <li><a href="donate.html" class="donate-btn">Donate</a></li>
+                </ul>
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+    
+    <section class="page-hero">
+        <h1>Join Our Mission</h1>
+        <div class="breadcrumb">
+            <a href="index.html">Home</a>
+            <span>/</span>
+            <a href="getinvolved.html">Get Involved</a>
+        </div>
+    </section>
+    
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Ways to Get Involved</h2>
+            <div class="involvement-intro">
+                <p>Mental health affects us all, and everyone has something valuable to contribute. Whether you have a few hours to volunteer, professional skills to share, or want to bring our programs to your community, there are many ways to make a difference with MindWell Foundation.</p>
+            </div>
+            
+            <div class="involvement-options">
+                <div class="involvement-card">
+                    <div class="involvement-image">
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Volunteer Opportunities">
+                    </div>
+                    <div class="involvement-content">
+                        <span class="involvement-type">Volunteer</span>
+                        <h3 class="involvement-title">Become a Volunteer</h3>
+                        <p class="involvement-desc">Share your time and talents to support our programs, events, and day-to-day operations. We have opportunities for all skill levels and time commitments.</p>
+                        <a href="#volunteer" class="involvement-btn">Learn More</a>
+                    </div>
+                </div>
+                
+                <div class="involvement-card">
+                    <div class="involvement-image">
+                        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Professional Opportunities">
+                    </div>
+                    <div class="involvement-content">
+                        <span class="involvement-type">Professional</span>
+                        <h3 class="involvement-title">Share Your Expertise</h3>
+                        <p class="involvement-desc">Mental health professionals can provide pro bono services, while other professionals can contribute skills in areas like marketing, IT, or event planning.</p>
+                        <a href="#professional" class="involvement-btn">Offer Your Skills</a>
+                    </div>
+                </div>
+                
+                <div class="involvement-card">
+                    <div class="involvement-image">
+                        <img src="https://images.unsplash.com/photo-1521791055366-0d553872125f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Community Partnerships">
+                    </div>
+                    <div class="involvement-content">
+                        <span class="involvement-type">Community</span>
+                        <h3 class="involvement-title">Community Partnerships</h3>
+                        <p class="involvement-desc">Schools, religious organizations, and community groups can partner with us to bring mental health programs to their members.</p>
+                        <a href="#community" class="involvement-btn">Partner With Us</a>
+                    </div>
+                </div>
+                
+                <div class="involvement-card">
+                    <div class="involvement-image">
+                        <img src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Fundraising Events">
+                    </div>
+                    <div class="involvement-content">
+                        <span class="involvement-type">Fundraising</span>
+                        <h3 class="involvement-title">Host an Event</h3>
+                        <p class="involvement-desc">Organize a fundraiser in your community or workplace to support our mental health initiatives.</p>
+                        <a href="#fundraising" class="involvement-btn">Start Fundraising</a>
+                    </div>
+                </div>
+                
+                <div class="involvement-card">
+                    <div class="involvement-image">
+                        <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Advocacy Opportunities">
+                    </div>
+                    <div class="involvement-content">
+                        <span class="involvement-type">Advocacy</span>
+                        <h3 class="involvement-title">Become an Advocate</h3>
+                        <p class="involvement-desc">Help us promote mental health awareness and influence policy changes in your community.</p>
+                        <a href="#advocacy" class="involvement-btn">Join Advocacy</a>
+                    </div>
+                </div>
+                
+                <div class="involvement-card">
+                    <div class="involvement-image">
+                        <img src="https://images.unsplash.com/photo-1521791055366-0d553872125f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Corporate Partnerships">
+                    </div>
+                    <div class="involvement-content">
+                        <span class="involvement-type">Corporate</span>
+                        <h3 class="involvement-title">Corporate Engagement</h3>
+                        <p class="involvement-desc">Businesses can support through employee volunteering, matching gifts, sponsorships, and workplace mental health programs.</p>
+                        <a href="#corporate" class="involvement-btn">Business Opportunities</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="volunteer" class="section volunteer-benefits">
+        <div class="container">
+            <h2 class="section-title">Volunteer Benefits</h2>
+            <p>Volunteering with MindWell Foundation isn't just about giving back—it's also an opportunity for personal and professional growth.</p>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon"><i class="fas fa-heart"></i></div>
+                    <h3 class="benefit-title">Make a Difference</h3>
+                    <p>Directly impact lives by helping people access mental health support and resources.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon"><i class="fas fa-users"></i></div>
+                    <h3 class="benefit-title">Build Community</h3>
+                    <p>Connect with like-minded individuals passionate about mental health advocacy.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon"><i class="fas fa-graduation-cap"></i></div>
+                    <h3 class="benefit-title">Gain Experience</h3>
+                    <p>Develop valuable skills and experience in the mental health field.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon"><i class="fas fa-certificate"></i></div>
+                    <h3 class="benefit-title">Training Provided</h3>
+                    <p>Receive comprehensive training to prepare you for your volunteer role.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon"><i class="fas fa-network-wired"></i></div>
+                    <h3 class="benefit-title">Professional Networking</h3>
+                    <p>Connect with mental health professionals and community leaders.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon"><i class="fas fa-calendar-alt"></i></div>
+                    <h3 class="benefit-title">Flexible Commitment</h3>
+                    <p>Choose from opportunities with varying time commitments to fit your schedule.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="section testimonials">
+        <div class="container">
+            <h2 class="section-title">Volunteer Stories</h2>
+            <div class="testimonial-carousel">
+                <div class="testimonial-slides">
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p class="testimonial-text">Volunteering as a crisis line responder has been one of the most rewarding experiences of my life. The training prepared me well, and knowing I'm there for people during their darkest moments gives my life profound meaning.</p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">
+                                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" alt="Michael R.">
+                                </div>
+                                <div class="author-name">Michael R.</div>
+                                <div class="author-role">Crisis Line Volunteer</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p class="testimonial-text">As a marketing professional, I was able to use my skills to help MindWell reach more people. It's incredible to see how my work directly contributes to breaking down mental health stigma in our community.</p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">
+                                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" alt="Sarah J.">
+                                </div>
+                                <div class="author-name">Sarah J.</div>
+                                <div class="author-role">Marketing Volunteer</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p class="testimonial-text">After benefiting from MindWell's services myself, I wanted to give back. Now I facilitate a support group, and it's amazing to see members grow and heal each week. We truly support each other.</p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">
+                                    <img src="https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" alt="David L.">
+                                </div>
+                                <div class="author-name">David L.</div>
+                                <div class="author-role">Support Group Facilitator</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-nav">
+                    <div class="carousel-dot active"></div>
+                    <div class="carousel-dot"></div>
+                    <div class="carousel-dot"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Volunteer Application</h2>
+            <p style="text-align: center; margin-bottom: 40px;">Ready to join our team of dedicated volunteers? Complete the form below to get started.</p>
+            
+            <div class="volunteer-form">
+                <form>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="vFirstName">First Name</label>
+                            <input type="text" id="vFirstName" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="vLastName">Last Name</label>
+                            <input type="text" id="vLastName" class="form-control" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="vEmail">Email Address</label>
+                            <input type="email" id="vEmail" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="vPhone">Phone Number</label>
+                            <input type="tel" id="vPhone" class="form-control" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="vAddress">Street Address</label>
+                        <input type="text" id="vAddress" class="form-control">
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="vCity">City</label>
+                            <input type="text" id="vCity" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="vState">State/Province</label>
+                            <input type="text" id="vState" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="vZip">ZIP/Postal Code</label>
+                            <input type="text" id="vZip" class="form-control">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="vCountry">Country</label>
+                        <select id="vCountry" class="form-control">
+                            <option>United States</option>
+                            <option>Canada</option>
+                            <option>United Kingdom</option>
+                            <option>Australia</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="vInterest">Area of Interest</label>
+                        <select id="vInterest" class="form-control" required>
+                            <option value="">Select an option</option>
+                            <option>Crisis Support</option>
+                            <option>Peer Support Groups</option>
+                            <option>Community Outreach</option>
+                            <option>Event Volunteering</option>
+                            <option>Administrative Support</option>
+                            <option>Professional Services</option>
+                            <option>Fundraising</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="vSkills">Skills & Experience</label>
+                        <textarea id="vSkills" class="form-control form-textarea" placeholder="Please describe any relevant skills, experience, or qualifications you have"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="vAvailability">Availability</label>
+                        <textarea id="vAvailability" class="form-control form-textarea" placeholder="Please describe your general availability (days/times)"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="vMotivation">Why do you want to volunteer with MindWell?</label>
+                        <textarea id="vMotivation" class="form-control form-textarea" required></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="vTraining" name="vTraining" required>
+                            <label for="vTraining">I understand that training may be required for my volunteer role</label>
+                        </div>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="vBackground" name="vBackground" required>
+                            <label for="vBackground">I agree to a background check if required for my volunteer position</label>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Submit Application</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+    <section id="corporate" class="section corporate-section">
+        <div class="container">
+            <h2 class="section-title">Corporate Engagement</h2>
+            <p style="text-align: center; margin-bottom: 40px;">Businesses play a vital role in supporting mental health initiatives. Discover how your company can partner with MindWell Foundation.</p>
+            
+            <div class="corporate-options">
+                <div class="corporate-card">
+                    <div class="corporate-icon"><i class="fas fa-handshake"></i></div>
+                    <h3 class="corporate-title">Employee Volunteering</h3>
+                    <p>Organize team volunteer days or skills-based volunteering opportunities that align with your employees' talents.</p>
+                </div>
+                
+                <div class="corporate-card">
+                    <div class="corporate-icon"><i class="fas fa-dollar-sign"></i></div>
+                    <h3 class="corporate-title">Matching Gifts</h3>
+                    <p>Multiply your employees' donations through corporate matching gift programs.</p>
+                </div>
+                
+                <div class="corporate-card">
+                    <div class="corporate-icon"><i class="fas fa-medal"></i></div>
+                    <h3 class="corporate-title">Sponsorships</h3>
+                    <p>Sponsor events or programs to demonstrate your company's commitment to mental health while gaining visibility.</p>
+                </div>
+                
+                <div class="corporate-card">
+                    <div class="corporate-icon"><i class="fas fa-briefcase"></i></div>
+                    <h3 class="corporate-title">Workplace Programs</h3>
+                    <p>Bring our mental health workshops and training programs to your workplace.</p>
+                </div>
+                
+                <div class="corporate-card">
+                    <div class="corporate-icon"><i class="fas fa-trophy"></i></div>
+                    <h3 class="corporate-title">Cause Marketing</h3>
+                    <p>Partner with us on cause-related marketing campaigns that benefit both your brand and our mission.</p>
+                </div>
+                
+                <div class="corporate-card">
+                    <div class="corporate-icon"><i class="fas fa-lightbulb"></i></div>
+                    <h3 class="corporate-title">Pro Bono Services</h3>
+                    <p>Offer your company's professional services to support our operations and growth.</p>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 50px;">
+                <a href="#contact" class="involvement-btn" style="display: inline-block; margin: 0 auto;">Contact Our Corporate Team</a>
+            </div>
+        </div>
+    </section>
+    
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title">Contact Our Team</h2>
+            <p style="text-align: center; margin-bottom: 40px;">Have questions about getting involved? Reach out to our engagement team for more information.</p>
+            
+            <div class="volunteer-form">
+                <form>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="cFirstName">First Name</label>
+                            <input type="text" id="cFirstName" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="cLastName">Last Name</label>
+                            <input type="text" id="cLastName" class="form-control" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="cEmail">Email Address</label>
+                            <input type="email" id="cEmail" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="cPhone">Phone Number</label>
+                            <input type="tel" id="cPhone" class="form-control">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="cOrganization">Organization (if applicable)</label>
+                        <input type="text" id="cOrganization" class="form-control">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="cInterest">Interest Area</label>
+                        <select id="cInterest" class="form-control" required>
+                            <option value="">Select an option</option>
+                            <option>Volunteering</option>
+                            <option>Professional Services</option>
+                            <option>Community Partnership</option>
+                            <option>Fundraising</option>
+                            <option>Advocacy</option>
+                            <option>Corporate Engagement</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="cMessage">Your Message</label>
+                        <textarea id="cMessage" class="form-control form-textarea" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <i class="fas fa-brain"></i>
+                        <span>MindWell Foundation</span>
+                    </div>
+                    <p class="footer-desc">Dedicated to improving mental health through support, education, and advocacy. Together, we can create a world where mental well-being is a priority for all.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3 class="footer-title">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Our Services</a></li>
+                        <li><a href="resources.html">Resources</a></li>
+                        <li><a href="getinvolved.html">Get Involved</a></li>
+                        <li><a href="news.html">Blog & News</a></li>
+                        <li><a href="donate.html">Donate</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3 class="footer-title">Our Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Crisis Support</a></li>
+                        <li><a href="#">Counseling</a></li>
+                        <li><a href="#">Support Groups</a></li>
+                        <li><a href="#">Workshops</a></li>
+                        <li><a href="#">Community Programs</a></li>
+                        <li><a href="#">Youth Services</a></li>
+                        <li><a href="#">Workplace Training</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3 class="footer-title">Contact Us</h3>
+                    <ul class="contact-info">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>123 Wellness Street, Mindville, MV 12345</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone-alt"></i>
+                            <span>1-800-MINDWELL (1-800-646-3935)</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>info@mindwell.org</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <span>Monday - Friday: 9am - 7pm<br>Weekends: 10am - 4pm</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 MindWell Foundation. All Rights Reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navLinks.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Header scroll effect
+        const header = document.getElementById('header');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // Testimonial carousel
+        const testimonialCarousel = document.querySelector('.testimonial-carousel');
+        const testimonialSlides = document.querySelector('.testimonial-slides');
+        const testimonialCards = document.querySelectorAll('.testimonial-card');
+        const dots = document.querySelectorAll('.carousel-dot');
+        
+        let currentIndex = 0;
+        const cardWidth = testimonialCards[0].clientWidth;
+        const totalCards = testimonialCards.length;
+        
+        function updateTestimonialCarousel() {
+            testimonialSlides.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+            
+            // Update dots
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentIndex);
+            });
+        }
+        
+        // Dot navigation
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                currentIndex = index;
+                updateTestimonialCarousel();
+            });
+        });
+        
+        // Auto-rotate carousel
+        setInterval(() => {
+            currentIndex = (currentIndex < totalCards - 1) ? currentIndex + 1 : 0;
+            updateTestimonialCarousel();
+        }, 5000);
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (navLinks.classList.contains('active')) {
+                        navLinks.classList.remove('active');
+                        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
